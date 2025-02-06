@@ -1,0 +1,47 @@
+{
+   "name": "@su14iman/beschwerde-app-backend",
+   "version": "1.0.0",
+   "author": "Sulaiman Sulaiman <s.su14iman@gmail.com>",
+   "license": "MIT",
+   "main": "dist/index.js",
+   "types": "types/index.d.ts",
+   "files": [
+      "/dist"
+   ],
+   "homepage": "https://github.ssulaiman.com/beschwerde-app-backend",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/su14iman/beschwerde-app-backend.git"
+   },
+   "scripts": {
+      "start": "node dist/index.js",
+      "dev": "ts-node-dev --respawn src/index.ts",
+      "build": "tsc",
+      "test": "jest"
+   },
+   "engines": {
+      "node": ">=18"
+   },
+   "devDependencies": {
+      "@types/cors": "^2.8.17",
+      "@types/express": "^5.0.0",
+      "@types/jest": "^29.5",
+      "@types/node": "^22.13.1",
+      "jest": "^29.7",
+      "ts-jest": "^29.2",
+      "ts-node": "10.9.1",
+      "ts-node-dev": "^2.0",
+      "typeorm": "^0.3.20",
+      "typeorm-ts-node-commonjs": "^0.3.20",
+      "typescript": "^5.7.3"
+   },
+   "dependencies": {
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.4.7",
+      "express": "^4.18.3",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.20"
+   }
+}
