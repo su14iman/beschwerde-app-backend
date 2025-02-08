@@ -1,21 +1,33 @@
 import { AppDataSource } from "./data-source"
 import Webserver from "./utilites/webserver";
 
-// import Image from "./entity/Image";
+import RoutesManger from "./utilites/RoutesManger";
+
+// Entities
+import Image from "./entity/Image";
+import Person from "./entity/Person";
+import Location from "./entity/Location";
+import Type from "./entity/Type";
+import TypeCategory from "./entity/TypeCategory";
+import Beschwerde from "./entity/Beschwerde";
 
 AppDataSource.initialize().then( async dataSource => {
     Webserver( app => {
+        
+        // new RequestController(dataSource, app, Image).getRoutes();
+        let routesManger = new RoutesManger(dataSource, app);
+        routesManger.addEntityController(Image);
+        routesManger.addEntityController(Person);
+        routesManger.addEntityController(Location);
+        routesManger.addEntityController(Type);
+        routesManger.addEntityController(TypeCategory);
+        routesManger.addEntityController(Beschwerde);
+        routesManger.getRoutes();
+        
         app.get(
             "/",
             async (req, res) => {
-                res.send("Hello World!")
-                
-                // const image = new Image();
-                // image.url = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
-                // await dataSource.manager.save(image);
-
-                // const images = await dataSource.manager.find(Image);
-                // console.log(images);
+                res.send("Hello World!");                
             }
         );
     });

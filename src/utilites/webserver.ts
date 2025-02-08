@@ -28,13 +28,16 @@ export default function webserver(
     
     const app: express.Application = express();
     const HTTP_PORT: number = parseInt(process.env.HTTP_PORT?.toString() || "3000");
+    app.use(express.json())
 
     app.use(cors(
         {
             origin: "*"
         }
     ));
+
     callback(app);
+    
     app.listen(
         HTTP_PORT,
         () => {
